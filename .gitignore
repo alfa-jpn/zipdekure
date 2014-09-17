@@ -15,8 +15,10 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+temp/
 *.bundle
 *.so
 *.o
 *.a
 mkmf.log
+vendor/bundle
