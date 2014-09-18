@@ -42,6 +42,7 @@ module Zipdekure::Parsers
               address.area      = row[8]
               address.area_kana = row[5]
               address.flags     = row.last(6)
+              address.office    = false
             end
             (data[address.zip_code] ||= Array.new) << address
           end

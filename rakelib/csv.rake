@@ -10,5 +10,13 @@ namespace :csv do
         puts "ken_all.csvをキャッシュできませんでした。\n"
       end
     end
+
+    Zipdekure::CSV::Jigyosyo.open(false) do |csv|
+      if csv.cache
+        puts "jigyosyo.csv(#{csv.digest})をキャッシュしました。\n"
+      else
+        puts "jigyosyo.csvをキャッシュできませんでした。\n"
+      end
+    end
   end
 end

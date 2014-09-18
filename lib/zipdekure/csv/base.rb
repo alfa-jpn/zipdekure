@@ -47,12 +47,9 @@ module Zipdekure::CSV
     # @yield [row] 実行するブロック
     # @yieldparam row [Array] 読み取った行
     def each(&block)
-      csv = CSV.open(csv_path, "r:#{encoding}:utf-8")
-      csv.each &block
-      csv.close
-    rescue
-      csv.close
-      raise
+      open(csv_path, "r:#{encoding}:utf-8", undef: :replace) do |f|
+        CSV.new(f).each &block
+      end
     end
 
     # ファイルのエンコードを取得する。
